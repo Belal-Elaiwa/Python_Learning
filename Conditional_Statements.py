@@ -310,39 +310,86 @@ if not(password[0].isalnum() and password[-1].isalnum()) :
     print ("Password must start and end with a letter or digit")
 else:
     print ("Password is valid.")
+#----------------------------------------------------------------------------------------------
+# Inline If Statement (Ternary)
+"""
+- You can write the whole condition (if - else) in one line
+- Shorter, quick 
+- Define what is gonna happen if the condition True before the if statement !!
+- "A" if Score >= 90 else "F"
 
+= Rules :
+     - Only if & else No elif
+     - else is a MUST
+     - You can assign the output of this ststement into a variable
+     - Only if the logic is simple
+         : simple Logic  = Inline-if
+         : Complex Logic = Classical-if
+"""
 
+score = 100
 
+"A" if score >= 90 else "F"
+print("A" if score >= 90 else "F")
 
+# assign to a variable
+grade = "A" if score >= 90 else "F"
+print(grade)
 
+# How to put multiple conditions in one line ?
+# Instead of elif use else !
+grade = "A" if score >= 90 else "B" if score >= 80 else "C" if score >= 60 else "F"
+print(grade)
 
+# To Write in multiple lines => use parantheses () :
+grade = (
+     "A" if score >= 90 
+     else "B" if score >= 80 
+     else "C" if score >= 60 
+     else "F")
+print(grade)
+#--------------------------------------------------------------------------------------------
+# Special Statements - Match Case
+"""
+- Evaluate an expression or a value against multiple values 
+- runs the code of the first match
+"""
 
+# task Examle
+# convert the full country names into 2-letter abbreviations
 
+country = "United States"
 
+if country == "United States":
+    print("US")
+else:
+    print("Unknown Country")
 
+# How to cover the whole countries ?
 
+country = "United States"
 
+if country == "United States":
+    print("US")
+elif country == "India":
+    print("IN")
+elif country == "Egypt":
+    print("EG")
+elif country == "Germany":
+    print("DE")              # And So On, you have to assign every country ! 
+else:
+    print("Unknown Country")
 
+# Case - match (Easy to read & write)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+match country:
+    case "United States" | "USA": # You can use | to check multiple values 
+        print("US")
+    case "India":
+        print("IN")
+    case "Egypt":
+        print("EG")
+    case "Germany":
+        print("DE")
+    case _:
+        print("Country Unknown")  # Use (case _:) instaed of (else) !!
